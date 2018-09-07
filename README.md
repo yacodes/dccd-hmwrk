@@ -17,4 +17,7 @@
 2. Сделать коммит с описанием проделанной работы: `git commit -m 'Add first homework'`.
 3. Загрузить изменения на `github`: `git push origin 2/remembering-javascript`.
 4. В браузере перейти в репозиторий с домашним заданием на `github`.
-5.
+5. Перейти в только что созданную ветку.
+6. Нажать на кнопку `New pull request`.
+7. Создать `pull request`, нажав на зелёную кнопку `Create pull request`.
+8. Скопировать ссылку из браузера и добавить в соответствующий день в [таблице](https://docs.google.com/spreadsheets/d/1aAb0JU4O1tJzEOhJWIfn1nQHLpjOxPHoCWaaE7_XMJk/edit#gid=0).
