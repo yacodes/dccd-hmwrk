@@ -18,6 +18,9 @@
 3. Загрузить изменения на `github`: `git push origin 2/remembering-javascript`.
 4. В браузере перейти в репозиторий с домашним заданием на `github`.
 5. Перейти в только что созданную ветку.
+![](images/1.png?raw=true)
 6. Нажать на кнопку `New pull request`.
+![](images/2.png?raw=true)
 7. Создать `pull request`, нажав на зелёную кнопку `Create pull request`.
+![](images/3.png?raw=true)
 8. Скопировать ссылку из браузера и добавить в соответствующий день в [таблице](https://docs.google.com/spreadsheets/d/1aAb0JU4O1tJzEOhJWIfn1nQHLpjOxPHoCWaaE7_XMJk/edit#gid=0).
