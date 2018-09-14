@@ -1,19 +1,25 @@
 [{
   "name": "Domenico Alfani",
-  "age": 35
+  "age": 35,
+  "skills": ["Paint", "Theatre"]
 }, {
   "name": "Pietro Annigoni",
-  "age": 19
+  "age": 19,
+  "skills": ["Music"]
 }, {
   "name": "Jacopo Bassano",
-  "age": 24
+  "age": 24,
+  "skills": ["Paint", "Philisophy"]
 }, {
   "name": "Giovanni di Paolo",
-  "age": 47
+  "age": 47,
+  "skills": ["Paint", "Music"]
 }, {
   "name": "Francesco Hayez",
-  "age": 20
+  "age": 20,
+  "skills": ["Music", "Theatre"]
 }, {
   "name": "Ulvi Liegi",
-  "age": 30
+  "age": 30,
+  "skills": ["Paint"]
 }]

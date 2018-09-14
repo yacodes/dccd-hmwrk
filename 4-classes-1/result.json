@@ -1,0 +1,13 @@
+[{
+  "title": "Milk",
+  "price": {
+    "rubles": 90,
+    "dollars": 1.5
+  }
+}, {
+  "title": "Eggs",
+  "price": {
+    "rubles": 120,
+    "dollars": 2
+  }
+}]

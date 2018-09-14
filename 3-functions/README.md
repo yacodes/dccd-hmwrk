@@ -4,7 +4,8 @@
 1. Считывает `JSON` файл `index.json`;
 2. Выводит в консоль количество пользователей;
 3. Выводит в консоль среднее аримфетическое по возрасту пользователей;
-4. Записывает файл `users.csv` в формате: `32 Petr Vasin, 45 Yuichiro Ando, 33 Giuseppe Abbati, ...`;
+4. Выводит в консоль массив данных в формате: `32 Petr Vasin, 45 Yuichiro Ando, 33 Giuseppe Abbati, ...`;
+5. Выводит в консоль пользователей с навыком `Paint`;
 
 Пример вызова приложения:
 ```bash
@@ -17,11 +18,11 @@ $ node index.js
 $ node index.js
 $ Количество пользователей: 30
 $ Средний возраст пользователей: 27
-$ Пользователи записаны в формате .csv в файл users.csv
+$ 32 Petr Vasin, 45 Yuichiro Ando, 33 Giuseppe Abbati, ...
+$ [Domenico Alfani, "Jacopo Bassano", "Giovanni di Paolo", "Ulvi Liegi"]
 ```
 
 Пример `JSON`-файла можно найти [здесь](index.json).
-Пример `.csv`-файла можно найти [здесь](users.csv).
 Шаблон кода домашнего задания можно найти [здесь](index.js).
 
 ---
