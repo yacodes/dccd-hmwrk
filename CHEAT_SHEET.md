@@ -809,9 +809,43 @@ $el.onclick = (event) => {
 
 ## DOM 3
 ### Делегирование
+
+```js
+<button data-counter>1</button>
+<button data-counter>2</button>
+
+<script>
+  document.onclick = event => {
+    if (!event.target.hasAttribute('data-counter')) return;
+    const counter = event.target;
+    counter.innerHTML++;
+  };
+</script>
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Событие onload
+
+```html
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Content loaded');
+  });
+
+  document.querySelector('img').onload = () => {
+    console.log('loaded!')
+  };
+
+  window.onload = () => {
+    console.log('Window loaded')
+  };
+</script>
+
+<div id="test"></div>
+<img src="/test.jpg"/>
+```
+
 [К оглавлению](#-Оглавление)
 
 ---
