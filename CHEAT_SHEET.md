@@ -421,18 +421,138 @@ console.log(student);
 
 ## Classes 2
 ### module.exports
+
+*exports:*
+```js
+// index.js
+const utils = require('./utils');
+
+utils.average([1, 2, 3, 4, 5]);
+```
+
+```js
+// utils.js
+function average(arr) { /* code... */ }
+
+exports.average = average;
+```
+
+*module.exports:*
+```js
+// index.js
+const average = require('./average');
+
+average([1, 2, 3, 4, 5]);
+```
+
+```js
+// utils.js
+function average(arr) { /* code... */ }
+
+module.exports = average;
+```
 [К оглавлению](#-Оглавление)
 
 ### Явное указание this: call, apply
+
+*call:*
+```js
+function greetUser(greeting) {
+  console.log(greeting + this.firstName + ' ' + this.lastName);
+}
+
+const user = { firstName: 'Jaimes', lastName: 'Johnson' };
+
+greetUser.call(user, 'Hello, '); // "Hello, Jaimes Johnson"
+```
+
+*Одалживание метода:*
+```js
+function printArgs() {
+  // arr.slice() copies all arguments
+  const args = [].slice.call(arguments);
+  console.log(args.join(' '));
+}
+
+printArgs('Hello', 'whole', 'new', 'world');
+// Hello whole new world
+```
+
+*apply:*
+```js
+function greetUser(greeting) {
+  console.log(greeting + this.firstName + ' ' + this.lastName);
+}
+
+const user = { firstName: 'Jaimes', lastName: 'Johnson' };
+
+greetUser.call(user, 'Hello, '); // "Hello, Jaimes Johnson"
+greetUser.apply(user, ['Hello, ']); // "Hello, Jaimes Johnson"
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Привязка контекста: bind
+
+*bind:*
+```js
+function greet() {
+  console.log(this);
+}
+
+const g = greet.bind('Hello!');
+g(); // "Hello!"
+```
+
+*карринг:*
+```js
+function mul(a, b) {
+  return a * b;
+}
+
+const double = mul.bind(null, 2);
+double(3); // mul(2, 3); -> 6
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Наследование
+
+```js
+function Machine() {
+  let enabled = false;
+  this.enable = function() { enabled = true; };
+  this.disable = function() { enabled = false; };
+  this.isEnabled = function() { return enabled; };
+}
+
+function Car() {
+  Machine.apply(this, arguments);
+  this.type = 'BMW';
+}
+
+const car = new Car();
+car.enable();
+console.log(car.isEnabled()); // true
+console.log(car.type); // "BMW"
+```
+
 [К оглавлению](#-Оглавление)
 
 ### instanceof
+
+```js
+function Student(name) {
+  this.name = name;
+}
+
+const student = new Student('Ron');
+
+student instanceof Student; // true
+student instanceof Object; // true
+student instanceof Number; // false
+```
+
 [К оглавлению](#-Оглавление)
 
 ---
