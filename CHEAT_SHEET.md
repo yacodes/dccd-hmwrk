@@ -668,21 +668,141 @@ document.body.classList.toggle('active'); // <body class="root active"></body>
 
 ## DOM 2
 ### Операции с элементами DOM
+
+*Создание:*
+```js
+const $div = document.createElement('div');
+```
+
+*Добавление:*
+```js
+const $div = document.createElement('div');
+$div.innerHTML = 'Hello, world!';
+document.body.append($div);
+```
+
+```js
+const $div = document.createElement('div');
+$div.innerHTML = 'Hello, world!';
+document.body.prepend($div);
+```
+
+```js
+const $div = document.createElement('div');
+$div.innerHTML = 'Hello, world!';
+document.body.after($div);
+```
+
+```js
+const $div = document.createElement('div');
+$div.innerHTML = 'Hello, world!';
+document.body.before($div);
+```
+
+```js
+const $div = document.createElement('div');
+$div.innerHTML = 'Hello, world!';
+document.body.replaceWith($div);
+```
+
+*Удаление:*
+```js
+const $div = document.createElement('div');
+$div.innerHTML = 'Hello, world!';
+document.body.append($div);
+$div.parentNode.removeChild($div);
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Стили элемента
+
+```js
+document.body.backgroundColor = 'red'; // Добавляем свойство
+
+// background-color -> backgroundColor
+// padding-top -> paddingTop
+// border-top-width -> borderTopWidth
+
+document.body.backgroundColor = ''; // Удаляем свойство
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Размеры элемента
+
+```js
+document.body.getBoundingClientRect(); // Размеры и позиция элемента
+window.innerHeight; // Высота окна
+window.innerWidth; // Ширина окна
+```
 [К оглавлению](#-Оглавление)
 
 ### Скролл
+
+```js
+const scrollTop = window.pageYOffset || document.documentElement.scrollTop; // Текущие положение
+window.scrollTo(x, y); // Проскроллить страницу
+$el.scrollIntoView(top); // top = true | false – Проскроллить до элемента
+
+```
+
+```css
+document.body.style.overflow = 'hidden'; /* Запретить скролл на странице */
+```
+
 [К оглавлению](#-Оглавление)
 
 ### События
+
+```html
+<button type="button" onclick="onClick()">
+  Click me
+</button>
+
+<script type="text/javascript">
+  function onClick() {
+    console.log('Click');
+  }
+</script>
+```
+
+```html
+<button type="button" id="button">
+  Click me
+</button>
+
+<script type="text/javascript">
+  document.getElementById('button').onclick = function() {
+    console.log('Click');
+  }
+</script>
+```
+
+```html
+<button type="button" id="button">
+  Click me
+</button>
+
+<script type="text/javascript">
+  document.getElementById('button').addEventListener('click', function() {
+    console.log('Click');
+  });
+</script>
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Объект Event
+
+```js
+$el.onclick = (event) => {
+  console.log(event);
+  event.type; // click
+  event.currentTarget; // $el
+};
+```
+
 [К оглавлению](#-Оглавление)
 
 ---
