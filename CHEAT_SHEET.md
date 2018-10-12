@@ -333,18 +333,88 @@ const backToData = JSON.parse(jsonData); // [1, 2, 3, 4, 5]
 
 ## Classes 1
 ### fs, path
+
+```js
+const path = require('path'); // Подключаем модуль path
+const fs = require('fs'); // Подключаем модуль fs
+
+const pathToFile = path.resolve(__dirname, 'index.txt'); // Определяем путь к файлу. __dirname содержит путь к
+исполняемой программой
+const content = fs.readFileSync(pathToFile, 'utf8'); // Считываем файл, utf8 – кодировка файла
+
+console.log(content);
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Методы объектов
-[К оглавлению](#-Оглавление)
 
-### Контекст, this
+```js
+const user = {
+  name: 'Michael',
+  getName: function() {
+    return this.name;
+  }
+};
+
+user.getName(); // "Michael"
+```
+
 [К оглавлению](#-Оглавление)
 
 ### toString, valueOf
+
+```js
+const user = {
+  name: 'Andy Warhol',
+};
+
+console.log(String(user)); // [object Object]
+```
+
+```js
+const user = {
+  name: 'Andy Warhol',
+  toString: function() {
+    return 'Andy Warhol';
+  }
+};
+
+console.log(String(user)); // 'Andy Warhol'
+```
+
+```js
+const user = {
+  name: 'Andy Warhol',
+  valueOf: function() {
+    return 1;
+  }
+};
+
+console.log(Number(user)); // 1
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Создание объектов через new
+
+```js
+function Student(name) {
+  // this = {};
+
+  // add properties and methods to this
+
+  this.name = name;
+  this.isExcellent = true;
+
+  // return this;
+}
+
+const student = new Student('Johnny');
+console.log(student);
+// { name: 'Johhny', isExcellent: true };
+```
+
 [К оглавлению](#-Оглавление)
 
 ---
