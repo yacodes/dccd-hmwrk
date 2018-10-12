@@ -852,21 +852,52 @@ $el.onclick = (event) => {
 
 ## API 1
 ### HTTP
+```
+GET - Fetches element/collection
+POST - Creates element
+PUT - Replaces element
+DELETE - Removes element
+```
 [К оглавлению](#-Оглавление)
 
 ### fetch
+```js
+fetch('https://aws.random.cat/meow')
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+```
 [К оглавлению](#-Оглавление)
 
 ### npm init
+```
+$ npm init
+$ npm init --yes
+```
 [К оглавлению](#-Оглавление)
 
 ### npm install
+```
+$ npm install --save to-camel-case
+$ npm install --global wttr
+```
 [К оглавлению](#-Оглавление)
 
 ### npm scripts
+```
+// package.json
+"scripts": {
+  "hello": "echo 'Hello world'"
+}
+
+$ npm run hello # "Hello world"
+```
 [К оглавлению](#-Оглавление)
 
 ### json-server
+```
+$ npm install --global json-server
+$ json-server --watch db.json
+```
 [К оглавлению](#-Оглавление)
 
 ---
