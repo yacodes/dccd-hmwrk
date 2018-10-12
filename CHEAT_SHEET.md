@@ -233,18 +233,100 @@ console.log(process.argv.slice(2)); // ["arg1", "arg2", "arg3"]
 
 ## Basics 2
 ### Функции
-[К оглавлению](#-Оглавление)
 
-### Функции
+```js
+function sum(arg1, arg2) {
+  return arg1 + arg2;
+}
+
+sum(1, 2); // 3
+```
+
+```js
+const sum = (arg1, arg2) => arg1 + arg2;
+
+sum(1, 2); // 3
+```
 [К оглавлению](#-Оглавление)
 
 ### Замыкания
+```js
+const createCounter = () => {
+  let c = 0;
+  return () => {
+    c = c + 1;
+    return c;
+  };
+};
+
+const counter = createCounter();
+counter(); // 1
+counter(); // 2
+counter(); // 3
+
+console.log(c); // ReferenceError
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Методы массивов
+
+*Map:*
+```js
+let numbers = [1, 2, 3, 4, 5];
+numbers = numbers.map((number) => number + 1);
+console.log(numbers); // [2, 3, 4, 5, 6]
+```
+
+*Filter:*
+```js
+let numbers = [1, 2, 3, 4, 5];
+numbers = numbers.filter((number) =>
+  number % 2 === 0
+);
+console.log(numbers); // [2, 4]
+```
+
+*Find:*
+```js
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers.find((number) => number === 1);
+console.log(result); // 1
+```
+
+*Includes:*
+```js
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers.includes((number) => number === 1);
+console.log(result); // true
+```
+
+*Reduce:*
+```js
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers.reduce((acc, number) => acc + number, 0);
+console.log(result); // 15
+```
+
 [К оглавлению](#-Оглавление)
 
 ### JSON
+
+*JSON.stringify:*
+```js
+const data = [1, 2, 3, 4, 5];
+
+const jsonData = JSON.stringify(data); // "[1, 2, 3, 4, 5]"
+```
+
+*JSON.parse:*
+```js
+const data = [1, 2, 3, 4, 5];
+
+const jsonData = JSON.stringify(data); // "[1, 2, 3, 4, 5]"
+
+const backToData = JSON.parse(jsonData); // [1, 2, 3, 4, 5]
+```
 [К оглавлению](#-Оглавление)
 
 ---
