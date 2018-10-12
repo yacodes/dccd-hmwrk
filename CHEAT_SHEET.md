@@ -338,8 +338,7 @@ const backToData = JSON.parse(jsonData); // [1, 2, 3, 4, 5]
 const path = require('path'); // Подключаем модуль path
 const fs = require('fs'); // Подключаем модуль fs
 
-const pathToFile = path.resolve(__dirname, 'index.txt'); // Определяем путь к файлу. __dirname содержит путь к
-исполняемой программой
+const pathToFile = path.resolve(__dirname, 'index.txt'); // Определяем путь к файлу. __dirname содержит путь к исполняемой программой
 const content = fs.readFileSync(pathToFile, 'utf8'); // Считываем файл, utf8 – кодировка файла
 
 console.log(content);
@@ -559,15 +558,110 @@ student instanceof Number; // false
 
 ## DOM 1
 ### Поиск элементов в DOM
+
+*getElementById:*
+```html
+<div id="root"></div>
+```
+```js
+const $div = document.getElementById('root');
+```
+
+---
+
+*querySelector:*
+```html
+<div class="root"></div>
+```
+```js
+const $div = document.querySelector('.root');
+```
+
+---
+
+*querySelectorAll:*
+```html
+<div class="root"></div>
+<div class="root"></div>
+<div class="root"></div>
+```
+```js
+const $divs = [].slice.call(document.querySelectorAll('.root'));
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Содержимое элементов
+
+*innerHTML:*
+```html
+<body>
+  <strong>Test</strong>
+</body>
+```
+```js
+document.body.innerHTML; // "<strong>Test</strong>"
+document.body.innerHTML = '<strong>Replaced</strong>';
+```
+
+---
+
+*outerHTML:*
+```html
+<body>
+  <strong>Test</strong>
+</body>
+```
+```js
+document.body.outerHTML; // "<body><strong>Test</strong></body>"
+```
+
+---
+
+*textContent:*
+```html
+<body>
+  <strong>Test</strong>
+</body>
+```
+```js
+document.body.textContent; // "Test"
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Атрибуты элементов
+
+```html
+<body class="root">
+  <strong>Test</strong>
+</body>
+```
+
+```js
+document.body.hasAttribute('class'); // true
+document.body.getAttribute('class'); // "root"
+document.body.setAttribute('class', 'test'); // <body class="test"></body>
+document.body.removeAttribute('class'); // <body></body>
+```
+
 [К оглавлению](#-Оглавление)
 
 ### Работа с классами элементов
+
+```html
+<body class="root">
+  <strong>Test</strong>
+</body>
+```
+
+```js
+document.body.classList.contains('root'); // true
+document.body.classList.add('active'); // <body class="root active"></body>
+document.body.classList.remove('root'); // <body></body>
+document.body.classList.toggle('active'); // <body class="root active"></body>
+```
+
 [К оглавлению](#-Оглавление)
 
 ---
