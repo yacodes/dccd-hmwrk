@@ -920,7 +920,7 @@ $ npm init --yes
 $ npm install express --save
 ```
 3. Создать файл `index.js` с программой, описывающей работу API-сервера:
-```
+```js
 const express = require('express'); // Подключаем модуль express.js
 const app = express(); // Инициализируем приложение
 const port = 3000; // Записываем в константу порт на котором будет работать приложение
@@ -944,7 +944,7 @@ $ node index.js
 ### Express Middleware
 Фреймворк `Express.js` использует концепцию `middlewares`. Это промежуточные функции, вызываемые при любом запросе к
 серверу с целью получить/записать/инициализировать какую-то дополнительную, необходимую нам информацию.
-```
+```js
 const express = require('express'); // Подключаем модуль express.js
 const app = express(); // Инициализируем приложение
 const port = 3000; // Записываем в константу порт на котором будет работать приложение
@@ -975,7 +975,7 @@ $ npm install body-parser --save
 ```
 
 После чего подключить его в нашем приложении:
-```
+```js
 const express = require('express'); // Подключаем модуль express.js
 const bodyParser = require('body-parser'); // Подключаем модуль body-parser
 const app = express(); // Инициализируем приложение
@@ -1000,7 +1000,7 @@ app.listen(port, () => { // Запускаем сервер на порту 3000
 
 ### Express PUT
 HTTP PUT запросы концептуально предполагают замену элементов в коллекции.
-```
+```js
 const express = require('express'); // Подключаем модуль express.js
 const bodyParser = require('body-parser'); // Подключаем модуль body-parser
 const app = express(); // Инициализируем приложение
@@ -1026,7 +1026,7 @@ app.listen(port, () => { // Запускаем сервер на порту 3000
 
 ### Express PUT
 HTTP PUT запросы концептуально предполагают замену элементов в коллекции.
-```
+```js
 const express = require('express'); // Подключаем модуль express.js
 const bodyParser = require('body-parser'); // Подключаем модуль body-parser
 const app = express(); // Инициализируем приложение
@@ -1052,7 +1052,7 @@ app.listen(port, () => { // Запускаем сервер на порту 3000
 
 ### Express DELETE
 HTTP DELETE запросы концептуально предполагают удаление элементов из коллекции.
-```
+```js
 const express = require('express'); // Подключаем модуль express.js
 const app = express(); // Инициализируем приложение
 const port = 3000; // Записываем в константу порт на котором будет работать приложение
