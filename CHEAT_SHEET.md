@@ -59,6 +59,8 @@
   * [Express POST](#express-post)
   * [Express PUT](#express-put)
   * [Express DELETE](#express-delete)
+- [API #5](#api-5)
+  * [Promise](#promise)
 
 ---
 
@@ -1042,6 +1044,33 @@ app.delete('/:id', (req, res) => { // Описываем функцию, вып�
 app.listen(port, () => { // Запускаем сервер на порту 3000
   console.log(`App listening on port ${port}!`); // После запуска выводим в консоль сообщение об успешном запуске
 });
+```
+
+[К оглавлению](#-Оглавление)
+
+---
+
+## API 5
+### Promise
+
+*Создание Promise:*
+```js
+new Promise(function (ok, err) {
+  doStuff(function () { // fs.readFile for example
+    if (success) {
+      ok();
+    } else {
+      err();
+    }
+  });
+})
+```
+
+*Использование Promise:*
+```js
+promise
+  .then(function success() {}, function error() {})
+  .catch(function error() {})
 ```
 
 [К оглавлению](#-Оглавление)
