@@ -61,6 +61,10 @@
   * [Express DELETE](#express-delete)
 - [API #5](#api-5)
   * [Promise](#promise)
+- [Module Bundlers](#module-bundlers)
+  * [Browserify](#browserify)
+  * [Webpack](#webpack)
+  * [Create react app](#create-react-app)
 
 ---
 
@@ -1071,6 +1075,103 @@ new Promise(function (ok, err) {
 promise
   .then(function success() {}, function error() {})
   .catch(function error() {})
+```
+
+[К оглавлению](#-Оглавление)
+
+---
+
+## Module Bundlers
+### Browserify
+
+*Установка:*
+```sh
+$ npm install --global browserify watchify
+```
+
+*Запуск:*
+```sh
+$ browserify index.js -o output.js
+```
+
+*Запуск в режиме разработки:*
+```sh
+$ watchify index.js -o output.js
+```
+[К оглавлению](#-Оглавление)
+
+### Webpack
+*Установка:*
+```sh
+$ npm install --global webpack webpack-cli
+```
+
+*Пример конфигурации:*
+```js
+const path = require('path');
+
+module.exports = {
+  mode: 'development', // Режим
+  entry: './index.js', // Входной файл
+  output: {
+    path: path.resolve(__dirname), // Путь, куда записать результат
+    filename: 'bundle.js' // Название файла с результатом
+  },
+  module: { // Модули для загрузки файлов, отличных от .js
+    rules: [
+      {
+        test: /\.css$/, // Все файлы с расширением .css
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ]
+      }
+    ]
+  }
+};
+```
+
+*Запуск в режиме разработки:*
+```sh
+$ webpack-dev-server --inline --hot
+```
+
+*Запуск:*
+```sh
+$ webpack
+```
+
+[К оглавлению](#-Оглавление)
+
+### Create react app
+
+*Установка:*
+```sh
+$ npx create-react-app app-name
+```
+
+*Запуск:*
+```sh
+$ npm run start
+```
+
+*Пример простого приложения:*
+```js
+const React = require('react');
+const ReactDOM = require('react-dom');
+require('./index.css');
+
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+}
+
+setInterval(tick, 1000);
 ```
 
 [К оглавлению](#-Оглавление)
