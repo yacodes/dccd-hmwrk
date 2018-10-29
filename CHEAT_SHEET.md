@@ -1186,7 +1186,7 @@ setInterval(tick, 1000);
 
 ---
 
-## Module Bundlers
+## React 1
 ### ReactDOM
 
 *Рендеринг компонента:*
