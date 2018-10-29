@@ -65,6 +65,14 @@
   * [Browserify](#browserify)
   * [Webpack](#webpack)
   * [Create react app](#create-react-app)
+- [React 1](#react-1)
+  * [ReactDOM](#reactdom)
+  * [React variables](#react-variables)
+  * [Functional component](#functional-components)
+  * [Props](#props)
+  * [Class components](#class-components)
+  * [State](#state)
+  * [Lifecycle](#lifecycle)
 
 ---
 
@@ -1173,6 +1181,170 @@ function tick() {
 
 setInterval(tick, 1000);
 ```
+
+[К оглавлению](#-Оглавление)
+
+---
+
+## Module Bundlers
+### ReactDOM
+
+*Рендеринг компонента:*
+```js
+ReactDOM.render(
+  <h1>Hello, world</h1>,
+  document.getElementById('root')
+);
+```
+
+*Удаление компонента:*
+```js
+ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+```
+
+[К оглавлению](#-Оглавление)
+
+### React variables
+
+*Использование переменных в React:*
+```js
+const className = "greeting";
+const text = "Hello, world!";
+
+ReactDOM.render(
+  <h1 className={className}>{text}</h1>,
+  document.getElementById('root')
+);
+```
+
+[К оглавлению](#-Оглавление)
+
+### Functional components
+
+*Создание функциональных компонентов:*
+```js
+const Header = () => (
+  <h1 className="header">Hello, world!</h1>
+);
+
+ReactDOM.render(
+  <Header/>
+  document.getElementById('root')
+);
+```
+
+[К оглавлению](#-Оглавление)
+
+### Props
+
+*Передача свойств компонентам:*
+```js
+const Header = ({className, children}) => (
+  <h1 className={cx(className, 'header')}>{children}</h1>
+);
+
+ReactDOM.render(
+  <Header className="greeting">Hello, world!</Header>,
+  document.getElementById('root')
+);
+```
+
+[К оглавлению](#-Оглавление)
+
+### Class components
+
+*Классовые компоненты:*
+```js
+class Header extends React.Component {
+  render() {
+    const {children, className} = this.props;
+
+    return (
+      <h1 className={cx(className, 'header')}>{children}</h1>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Header className="greeting">Hello, world!</Header>,
+  document.getElementById('root')
+);
+```
+
+[К оглавлению](#-Оглавление)
+
+### State
+
+*Состояние классовых компонентов:*
+```js
+class Header extends React.Component {
+  constructor() {
+    this.state = {
+      backgroundColor: 'red'
+    };
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    this.setState({
+      backgroundColor: this.state.backgroundColor === 'red' ? 'blue' : 'red'
+    });
+  }
+
+  render() {
+    const {children, className} = this.props;
+    const backgroundColor = this.state;
+
+    return (
+      <h1
+        className={cx(className, 'header')}
+        style={{backgroundColor: backgroundColor}}
+        onClick={onClick}
+        >
+        {children}
+      </h1>
+    );
+  }
+}
+```
+
+[К оглавлению](#-Оглавление)
+
+### Lifecycle
+
+*Жизненный цикл компонента:*
+```js
+class Header extends React.Component {
+  componentDidMount() {
+    console.log('Mounted!');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log(prevProps);
+  }
+
+  componentWillUnmount() {
+    console.log('unmounted!')
+  }
+
+  render() {
+    console.log('render!');
+    const {children, className} = this.props;
+
+    return (
+      <h1 className={cx(className, 'header')}>
+        {children}
+      </h1>
+    );
+  }
+}
+```
+
+![React lifecycle](https://cdn-images-1.medium.com/max/2000/1*sn-ftowp0_VVRbeUAFECMA.png "React lifecycle")
 
 [К оглавлению](#-Оглавление)
 
