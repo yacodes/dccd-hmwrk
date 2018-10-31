@@ -16,19 +16,19 @@ const getStudents = compose(
 );
 
 loadScript('https://apis.google.com/js/api.js', () => {
-  window.gapi.load('client:auth2', async () => {
-    await window.gapi.client.init({apiKey, clientId, discoveryDocs, scope});
+  window.gapi.load('client:auth2', () => {
+    window.gapi.client.init({apiKey, clientId, discoveryDocs, scope}).then(() => {
+      if (!window.gapi.auth2.getAuthInstance().isSignedIn.get()) {
+        window.gapi.auth2.getAuthInstance().signIn();
+      }
 
-    if (!window.gapi.auth2.getAuthInstance().isSignedIn.get()) {
-      window.gapi.auth2.getAuthInstance().signIn();
-    }
-
-    const data = await window.gapi.client.sheets.spreadsheets.values.get({spreadsheetId, range});
-
-    ReactDOM.render(
-      <App teams={getStudents(data.result.values)}/>,
-      document.getElementById('root')
-    );
+      window.gapi.client.sheets.spreadsheets.values.get({spreadsheetId, range}).then(data => {
+        ReactDOM.render(
+          <App teams={getStudents(data.result.values)}/>,
+          document.getElementById('root')
+        );
+      });
+    });
   });
 });
 
