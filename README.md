@@ -23,4 +23,4 @@
 ![](images/2.png?raw=true)
 7. Создать `pull request`, нажав на зелёную кнопку `Create pull request`.
 ![](images/3.png?raw=true)
-8. Скопировать ссылку из браузера и добавить в соответствующий день в [таблице](https://docs.google.com/spreadsheets/d/1aAb0JU4O1tJzEOhJWIfn1nQHLpjOxPHoCWaaE7_XMJk/edit#gid=0).
+8. Скопировать ссылку из браузера и добавить в соответствующий день в [таблице](https://docs.google.com/spreadsheets/d/10nL6TsvMfMebJjwNl9KHnMXmq0PNsz-1zgC6_f1n5a8/edit#gid=0).
