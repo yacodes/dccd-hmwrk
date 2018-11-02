@@ -73,6 +73,10 @@
   * [Class components](#class-components)
   * [State](#state)
   * [Lifecycle](#lifecycle)
+- [React 2](#react-2)
+  * [ES2018 Modules](#es2018-modules)
+  * [Conditional rendering](#conditional-rendering)
+  * [Controlled components](#controlled-components)
 
 ---
 
@@ -1345,6 +1349,60 @@ class Header extends React.Component {
 ```
 
 ![React lifecycle](https://cdn-images-1.medium.com/max/2000/1*sn-ftowp0_VVRbeUAFECMA.png "React lifecycle")
+
+[К оглавлению](#-Оглавление)
+
+---
+
+## React 2
+### ES2018 Modules
+
+```js
+// Конструкции эквиваленты
+module.exports = App;
+export default App;
+```
+
+```js
+// Конструкции эквиваленты
+exports.sum = sum;
+exports.mult = mult;
+
+exports {sum, mult};
+```
+
+[К оглавлению](#-Оглавление)
+
+### Conditional rendering
+```js
+// В зависимости от свойства isAdmin отображаем или нет ссылку на панель управления
+const Header = (props) => (
+  <header>
+    <div>Menu</div>
+    {props.isAdmin ? <a href="/admin">Admin panel</a> : null}
+  </header>
+);
+```
+
+[К оглавлению](#-Оглавление)
+
+### Controlled components
+```js
+// Синхронизируем состояние и значение поля ввода
+class Form extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+  }
+  render() {
+    return (
+      <form>
+        <input value={this.state.value} onChange={e => this.setState({value: e.target.value})}/>
+      </form>
+    );
+  }
+}
+```
 
 [К оглавлению](#-Оглавление)
 
