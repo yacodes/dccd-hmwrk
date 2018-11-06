@@ -77,6 +77,8 @@
   * [ES2018 Modules](#es2018-modules)
   * [Conditional rendering](#conditional-rendering)
   * [Controlled components](#controlled-components)
+- [React 3](#react-3)
+  * [react-router](#react-router)
 
 ---
 
@@ -1402,6 +1404,37 @@ class Form extends React.Component {
     );
   }
 }
+```
+
+[К оглавлению](#-Оглавление)
+
+---
+
+## React 3
+### React Router
+
+*Рендеринг компонента:*
+```js
+import React from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
+const Index = () => <h2>Home</h2>;
+const About = () => <h2>About</h2>;
+const Users = () => <h2>Users</h2>;
+
+const AppRouter = () => (
+  <Router>
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/about/">About</Link>
+      <Link to="/users/">Users</Link>
+
+      <Route path="/" exact component={Index}/>
+      <Route path="/about/" component={About}/>
+      <Route path="/users/" component={Users}/>
+    </div>
+  </Router>
+);
 ```
 
 [К оглавлению](#-Оглавление)
