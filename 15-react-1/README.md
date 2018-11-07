@@ -2,9 +2,9 @@
 
 Разработать приложение:
 
-1. Получающее список рецептов с http://www.recipepuppy.com/api.
+1. Получающее список рецептов с https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api.
 2. Состоящее из поля ввода и кнопки поиск.
-3. После клика на поиск происходит запрос на http://www.recipepuppy.com/api?q=search, где q=search – значение из поля ввода.
+3. После клика на поиск происходит запрос на https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api?q=search, где q=search – значение из поля ввода.
 4. Отображающее список рецептов с ссылками и кнопками «Добавить в избранное»
 5. При клике «добавить в избранное» рецепт сохраняется в localStorage.
 
