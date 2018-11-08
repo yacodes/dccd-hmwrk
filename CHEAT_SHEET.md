@@ -79,6 +79,11 @@
   * [Controlled components](#controlled-components)
 - [React 3](#react-3)
   * [react-router](#react-router)
+- [Redux 1](#redux-1)
+  * [Actions](#actions)
+  * [Reducers](#reducers)
+  * [Store](#store)
+  * [React-redux](#react-redux)
 
 ---
 
@@ -1440,3 +1445,78 @@ const AppRouter = () => (
 [К оглавлению](#-Оглавление)
 
 ---
+
+## Redux 1
+### Actions
+
+*Создание события:*
+```js
+export const ADD_TODO = 'ADD_TODO';
+
+export const addTodo = todo => ({
+  type: ADD_TODO,
+  todo,
+});
+```
+
+[К оглавлению](#-Оглавление)
+
+### Reducers
+
+*Создание редьюсера:*
+```js
+export const initialState = {
+  todos: [],
+};
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return {...state, todos: [...state.todos, action.todo]};
+
+    default:
+      return state;
+  }
+};
+```
+
+[К оглавлению](#-Оглавление)
+
+### Store
+
+*Создание хранилища:*
+```js
+import {createStore} from 'redux';
+import reducer from './reducer';
+
+const store = createStore(reducer);
+```
+
+[К оглавлению](#-Оглавление)
+
+### React-redux
+
+*Инициализация приложения:*
+```js
+import React from 'react';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import reducer from './reducer';
+import App from './App';
+
+const store = createStore(reducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('root'),
+);
+```
+
+[К оглавлению](#-Оглавление)
+
+![Redux](https://cdn-images-1.medium.com/max/1600/1*EdiFUfbTNmk_IxFDNqokqg.png "Redux")
+
+---
+
