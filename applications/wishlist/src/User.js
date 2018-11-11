@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import './user.css';
 
 const User = props => (
-  <div>
-    <img style={{width: 40, height: 40,  overflow: 'hidden', borderRadius: '100%'}} src={props.avatar}/>
+  <div className="user">
     <span>{props.name}</span>
+    <img style={{width: 40, height: 40,  overflow: 'hidden', borderRadius: '100%'}} src={props.avatar}/>
   </div>
 );
 
