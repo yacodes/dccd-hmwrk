@@ -84,6 +84,10 @@
   * [Reducers](#reducers)
   * [Store](#store)
   * [React-redux](#react-redux)
+- [Redux 2](#redux-2)
+  * [Redux Middleware](#redux-middleware)
+  * [Redux-thunk](#redux-thunk)
+  * [Prop-types](#prop-types)
 
 ---
 
@@ -1520,3 +1524,88 @@ ReactDOM.render(
 
 ---
 
+## Redux 2
+###
+
+*Создание события:*
+```js
+export const ADD_TODO = 'ADD_TODO';
+
+export const addTodo = todo => ({
+  type: ADD_TODO,
+  todo,
+});
+```
+
+[К оглавлению](#-Оглавление)
+
+### Redux Middleware
+
+*Создание middleware:*
+```js
+// Redux middleware
+import {createStore, combineReducers, applyMiddleware} from 'redux'
+
+const app = combineReducers(reducers)
+const store = createStore(
+  app,
+  applyMiddleware(
+    // simple logger
+    store => next => action => {
+      console.log(action);
+      next(action);
+    }
+  )
+)
+```
+
+[К оглавлению](#-Оглавление)
+
+### Redux Thunk
+
+*Создание асинхронных событий:*
+```js
+// actions/increment.js
+function incrementAsync() {
+  return dispatch => {
+    setTimeout(() => {
+      // Yay! Can invoke sync or async actions with `dispatch`
+      dispatch(increment());
+    }, 1000);
+  };
+}
+
+// index.js
+import thunk from 'redux-thunk';
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+);
+```
+
+[К оглавлению](#-Оглавление)
+
+### Prop Types
+
+*Описание типов принимаемых React компонентами свойств:*
+```js
+import React from 'react';
+import T from 'prop-types';
+
+const WishItem = ({name, price}) => (
+  <div>
+    <p>{name}</p>
+    <p>{price}</p>
+  </div>
+);
+
+WishItem.propTypes = {
+  name: T.string.isRequired,
+  price: T.number.isRequired,
+};
+```
+
+[К оглавлению](#-Оглавление)
+
+---
