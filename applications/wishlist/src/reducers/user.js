@@ -1,10 +1,24 @@
 const initialState = {
-  name: 'Hello',
-  avatar: 'http://digitalspyuk.cdnds.net/17/25/980x490/landscape-1498216547-avatar-neytiri.jpg'
+  name: '',
+  avatar: '',
+  isLogged: false,
+  isLoading: false,
 };
 
 function reducer(state, action) {
   if (typeof state === 'undefined') {
+    return initialState;
+  }
+
+  if (action.type === 'USER_LOGIN') {
+    return {
+      name: action.name,
+      avatar: action.avatar,
+      isLogged: true,
+    };
+  }
+
+  if (action.type === 'SIGN_OUT') {
     return initialState;
   }
 
